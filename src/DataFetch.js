@@ -47,6 +47,12 @@ const JobListingApp = () => {
     setFilteredJobs(filtered);
   };
 
+  useEffect(()=>{
+    if(searchKeyword !== "" || locationFilter !== "" || salaryFilter !== ""){
+     paginate(1)
+    }
+  },[filteredJobs])
+
   return (
     <div>
       {/* Search and Filter Controls */}
@@ -86,9 +92,9 @@ const JobListingApp = () => {
           }}
         >
           <h2 data-testid="job-heading">{job.title}</h2>
-          <p>{job?.company}</p>
-          <p>{job?.location}</p>
-          <p>minSalary : {job?.minSalary}</p>
+          <p data-testid="company">{job?.company}</p>
+          <p data-testid="location">{job?.location}</p>
+          <p data-testid="minSalary">minSalary : {job?.minSalary}</p>
         </div>
       ))}
 
