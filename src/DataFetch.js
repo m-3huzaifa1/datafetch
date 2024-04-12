@@ -104,7 +104,7 @@ const JobListingApp = () => {
           { length: Math.ceil(filteredJobs.length / jobsPerPage) },
           (_, i) => (
             <li key={i}>
-              <button onClick={() => paginate(i + 1)}>{i + 1}</button>
+              <button data-testid={`${i}`} onClick={() => paginate(i + 1)}>{i + 1}</button>
             </li>
           )
         )}
